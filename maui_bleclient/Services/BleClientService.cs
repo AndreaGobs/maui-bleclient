@@ -14,25 +14,27 @@ internal partial class BleClientService
 
     public bool? Scan(Action<string> foundDevice)
     {
-        var result = IsEnable;
         if (IsEnable == true)
         {
-
-        }
-        return result;
+            bool? result = null;
+            ScanHandler(foundDevice, ref result);
+            return result;
+        } 
+        return null;
     }
 
     public bool? Connect(string device)
     {
-        var result = IsEnable;
         if (IsEnable == true)
         {
-
+            bool? result = null;
+            ConnectHandler(device, ref result);
+            return result;
         }
-        return result;
+        return null;
     }
 
     partial void IsEnableHandler(ref bool? enable);
-    partial void ScanHandler(Action<string> foundDevice);
-    partial void ConnectHandler(string device);
+    partial void ScanHandler(Action<string> foundDevice, ref bool? result);
+    partial void ConnectHandler(string device, ref bool? result);
 }

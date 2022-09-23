@@ -1,6 +1,4 @@
-﻿using maui_bleclient.Platforms.Android.Models;
-
-namespace maui_bleclient.Services;
+﻿namespace maui_bleclient.Services;
 
 internal partial class PermissionService
 {
@@ -23,9 +21,9 @@ internal partial class PermissionService
 
         if (DeviceInfo.Version >= new Version(12, 0))
         {
-            status = await Permissions.CheckStatusAsync<BluetoothConnectPermission>();
+            status = await Permissions.CheckStatusAsync<Models.BluetoothConnectPermission>();
             if (status != PermissionStatus.Granted)
-                status = await Permissions.RequestAsync<BluetoothConnectPermission>();
+                status = await Permissions.RequestAsync<Models.BluetoothConnectPermission>();
             await Task.Delay(1000);
         }
 

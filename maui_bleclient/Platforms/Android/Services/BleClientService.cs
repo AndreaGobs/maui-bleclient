@@ -2,18 +2,25 @@
 
 internal partial class BleClientService
 {
+    private Models.BleClient mBleClient;
+
+    public BleClientService()
+    {
+        mBleClient = new Models.BleClient();
+    }
+
     partial void IsEnableHandler(ref bool? enable)
     {
-        throw new NotImplementedException();
+        enable = mBleClient.IsEnable;
     }
 
-    partial void ScanHandler(Action<string> foundDevice)
+    partial void ScanHandler(Action<string> foundDevice, ref bool? result)
     {
-        throw new NotImplementedException();
+        result = mBleClient.Scan(foundDevice);
     }
 
-    partial void ConnectHandler(string device)
+    partial void ConnectHandler(string device, ref bool? result)
     {
-        throw new NotImplementedException();
+        result = mBleClient.Connect(device);
     }
 }

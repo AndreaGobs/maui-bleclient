@@ -7,12 +7,12 @@ internal partial class BleClientService
         throw new NotImplementedException();
     }
 
-    partial void ScanHandler(Action<string> foundDevice)
+    partial void ScanHandler(Action<string> foundDevice, ref bool? result)
     {
         throw new NotImplementedException();
     }
 
-    partial void ConnectHandler(string device)
+    partial void ConnectHandler(string device, ref bool? result)
     {
         throw new NotImplementedException();
     }

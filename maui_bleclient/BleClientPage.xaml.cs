@@ -20,14 +20,16 @@ public partial class BleClientPage : ContentPage
 
 	private void CheckPermissionBtn_Clicked(object sender, EventArgs e)
 	{
-		Busy(true);
 		_ = MainThread.InvokeOnMainThreadAsync(async () =>
 		{
+            Busy(true);
+
             var result = await _permissionService.CheckBluetooth();
 			BlePermission.Text = result.ToString();
 			Console.WriteLine("DEBUG | " + result);
+
+            Busy(false);
         });
-        Busy(false);
     }
 
     private void CheckBluetoothBtn_Clicked(object sender, EventArgs e)
@@ -48,7 +50,7 @@ public partial class BleClientPage : ContentPage
 	{
         if (_Devices.Count > 0)
         {
-            var device = _Devices.OrderBy(d => d.Length).Last();
+			var device = _Devices.OrderBy(d => d.Length).Last();
 			var result = _bleClientService.Connect(device);
             Console.WriteLine("DEBUG | " + result);
         }
