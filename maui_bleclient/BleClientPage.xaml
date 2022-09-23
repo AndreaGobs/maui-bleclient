@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maui_bleclient.BleClientPage"
+             Title="BleClientPage">
+    <Grid Padding="10">
+        <VerticalStackLayout x:Name="MainLayout" Spacing="10">
+            <Button x:Name="CheckPermissionBtn" Text="Check Permission" Clicked="CheckPermissionBtn_Clicked" HorizontalOptions="Center" />
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Permission: "/>
+                        <Span x:Name="BlePermission" Text="---"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button x:Name="CheckBluetoothBtn" Text="Check Bluetooth" Clicked="CheckBluetoothBtn_Clicked" HorizontalOptions="Center" />
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Bluetooth: "/>
+                        <Span x:Name="BleStatus" Text="---"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button x:Name="ScanBtn" Text="Scan" Clicked="ScanBtn_Clicked" HorizontalOptions="Center" />
+            <Button x:Name="ConnectBtn" Text="Connect" Clicked="ConnectBtn_Clicked" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+        <ActivityIndicator x:Name="BusyIndicator" IsVisible="False" IsRunning="True" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Grid>
+</ContentPage>
